@@ -1,0 +1,4 @@
+theme = "hugo-theme-slim"
+baseURL = "https://justinminskblog.netlify.com"
+languageCode = "en-us"
+title = "My New Hugo Site"

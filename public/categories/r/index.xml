@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on My New Hugo Site</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>dplyr</title>
+      <link>/post/dplyr/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/dplyr/</guid>
+      <description>Justin Minsk
+PrefaceThe purpose of this website is to learn basic website building using Rmarkdown and to create notes for dpylr as a Mercyhurst grad student.
+Filter Columns and RowsWhen using dplyr, you can filter using select and filter commands. Below is an example of how this works. First you need to install and load Lahman and dplyr packages.
+library(Lahman)library(dplyr)Now we will run an example of filtering by taking from Batting the playerID, yearID, HR and then filter so the table only contains NY Yankees from the year 1927.</description>
+    </item>
+    
+    <item>
+      <title>ggplots</title>
+      <link>/post/ggplots/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplots/</guid>
+      <description>Data VisulzationThe package I am using for ggplots2 and dyplr.
+library(tidyverse)First set of data.
+mpg## # A tibble: 234 x 11## manufacturer model displ year cyl trans drv cty hwy## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;## 1 audi a4 1.8 1999 4 auto(l5) f 18 29## 2 audi a4 1.8 1999 4 manual(m5) f 21 29## 3 audi a4 2.</description>
+    </item>
+    
+  </channel>
+</rss>

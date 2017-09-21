@@ -1,0 +1,115 @@
+---
+title: "dplyr"
+author: "Justin Minsk"
+date: "2017-09-20"
+categories: ["R", "dplyr"]
+tags: ["dplyr", "R"]
+---
+
+Justin Minsk
+ 
+## Preface
+
+The purpose of this website is to learn basic website building using Rmarkdown and to create notes for dpylr as a Mercyhurst grad student.
+
+## Filter Columns and Rows
+
+When using dplyr, you can filter using select and filter commands. Below is an example of how this works. First you need to install and load Lahman and dplyr packages.
+
+```{r message=FALSE, warning=FALSE}
+library(Lahman)
+library(dplyr)
+
+```
+Now we will run an example of filtering by taking from Batting the playerID, yearID, HR and then filter so the table only contains NY Yankees from the year 1927.
+```{r}
+Batting %>%
+  select(playerID, yearID, teamID, HR) %>%
+  filter(teamID == "NYA" & yearID == 1927)
+```
+Finding players in the New York Yankees who hit more than 39 Home Runs.
+```{r}
+Batting %>%
+  select(playerID, yearID, teamID, HR) %>%
+  filter(HR > 39 & teamID == "NYA")
+```
+Finding players with more than 40 Home Runs and less than 400 Strike Outs.
+```{r}
+Batting %>%
+  select(playerID, yearID, teamID, HR, SO) %>%
+  filter(HR > 40 & SO < 60)
+```
+Philis players who hit more than 30 Home Runs in the 1970's.
+```{r}
+Batting %>%
+  select(playerID, yearID, teamID, HR) %>%
+  filter(HR > 30 & teamID == "PHI" & yearID >= 1970 & yearID < 1980)
+```
+
+## Arrange
+
+You can use arrange() to make your tables orginized by values. This will always go from least to greatest, but you can use desc() to get highest to lowest. In the examples below you can see how this tool is useful.
+
+Players with more than 50 Home Runs arranged by highest to lowest Home Run total.
+```{r}
+Batting %>%
+  select(playerID, yearID, teamID, HR) %>%
+  filter(HR > 50) %>%
+  arrange(desc(HR))
+```
+Find players with less than 10 Strike Outs who played more than 400 games at bat.
+```{r}
+Batting %>%
+  select(playerID, yearID, teamID, SO, AB) %>%
+  filter(SO < 10, AB > 400) %>%
+  arrange(SO)
+```
+
+## group_by and summarise
+
+You can use group_by() to push all instances of a string or int into one entry. Then you can use summarise() to sum(), mean(), or any other funciton to the varibles. The examples belowe will show how group_by and summarise can work together to create good querys.
+
+Get Babe Ruths home runs.
+```{r}
+Batting %>%
+  select(playerID, HR) %>%
+  filter(playerID == "ruthba01")
+```
+
+Get Babe Ruths total home runs.
+```{r}
+Batting %>%
+  filter(playerID == "ruthba01") %>%
+  group_by(playerID) %>%
+  summarise(career_HR = sum(HR))
+```
+
+Get players total home runs, 600 or more, in order from greatest to least.
+```{r}
+Batting %>%
+  group_by(playerID) %>%
+  summarise(career_HR = sum(HR)) %>%
+  filter(career_HR >=  600) %>%
+  arrange(desc(career_HR))
+```
+
+Get players average home runs, with an average 30 or more, and order it greatest to least.
+```{r}
+Batting %>%
+  group_by(playerID) %>%
+  summarise(career_avg_HR = mean(HR)) %>%
+  filter(career_avg_HR >= 30) %>%
+  arrange(desc(career_avg_HR))
+```
+
+Get players, listed only once, that have made more than 50 home runs since 1970.
+```{r}
+Batting %>%
+  select(yearID, playerID, HR) %>%
+  filter(yearID >= 1970)%>%
+  group_by(playerID) %>%
+  summarise(highestHR = max(HR))%>%
+  filter(highestHR > 50)%>%
+  select(playerID)
+```
+ 

@@ -6,10 +6,22 @@
     <description>Recent content in R on Justin Minsk&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Graphing Lahman Data</title>
+      <link>/post/lahmangraph/</link>
+      <pubDate>Fri, 22 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/lahmangraph/</guid>
+      <description>PrefaceThis post is to show how to get data to a point to graph and then graph it using ggplots.
+First install libraries:
+library(Lahman)library(dplyr)library(ggplot2)library(ggiraph)Then join the tables:
+df&amp;lt;-Batting%&amp;gt;%group_by(playerID)%&amp;gt;%summarise(career_HR=sum(HR), career_SO=sum(SO))%&amp;gt;%filter(career_HR&amp;gt;=400)#get the playerID&amp;#39;s of all players who have a HR total of over 399HRvSO&amp;lt;-inner_join(df, Master, by=c(&amp;quot;playerID&amp;quot;))%&amp;gt;%select(nameFirst, nameLast, career_HR, career_SO)#join with the master table to get first and last names of the players using plaerIDHRvSO$name&amp;lt;-paste(HRvSO$nameFirst, HRvSO$nameLast)#create a name column that combines first and last nameThen graph:</description>
+    </item>
     
     <item>
       <title>dplyr</title>

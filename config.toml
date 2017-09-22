@@ -1,5 +1,5 @@
 theme = "hugo-theme-slim"
-baseURL = "/"
+baseURL = "https://justinminskblog.netlify.com/"
 languageCode = "en-us"
 title = "Justin Minsk's Blog"
 GithubID = "justinminsk"

@@ -1,0 +1,52 @@
+---
+title: "Graphing Lahman Data"
+author: "Justin Minsk"
+date: "2017-09-22"
+categories: ["R", "ggplots"]
+tags: ["R", "ggplots", "dplyr"]
+---
+## Preface
+This post is to show how to get data to a point to graph and then graph it using ggplots.
+
+First install libraries:
+```{r message=FALSE, warning=FALSE}
+library(Lahman)
+library(dplyr)
+library(ggplot2)
+library(ggiraph)
+```
+
+Then join the tables:
+```{r}
+df<-Batting%>%
+  group_by(playerID)%>%
+  summarise(career_HR=sum(HR), career_SO=sum(SO))%>%
+  filter(career_HR>=400)
+
+#get the playerID's of all players who have a HR total of over 399
+
+HRvSO<-inner_join(df, Master, by=c("playerID"))%>%
+  select(nameFirst, nameLast, career_HR, career_SO)
+
+#join with the master table to get first and last names of the players using plaerID
+
+HRvSO$name<-paste(HRvSO$nameFirst, HRvSO$nameLast)
+
+#create a name column that combines first and last name
+```
+
+Then graph:
+```{r}
+g<-ggplot(data = HRvSO) +
+  geom_point_interactive(mapping = aes(x = career_SO, y = career_HR, tooltip = name)) +
+  ggtitle("Career Homeruns vs Strikeouts for Great Hitters") +
+  xlab("Career Strikeouts") +
+  ylab("Career Homeruns") 
+
+#create a graph that looks at SO by HR for each player
+
+ggiraph(code = print(g), hover_css = "fill:white;stroke:black")
+
+#makes graph
+```
+

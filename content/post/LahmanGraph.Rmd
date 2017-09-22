@@ -2,6 +2,7 @@
 title: "Graphing Lahman Data"
 author: "Justin Minsk"
 date: "2017-09-22"
+categories: ["R", "ggplots"]
 tags: ["R", "ggplots", "dplyr"]
 ---
 # Preface

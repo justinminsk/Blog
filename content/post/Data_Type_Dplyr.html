@@ -1,0 +1,32 @@
+---
+title: "Changing data types using dplyr"
+author: "Justin Minsk"
+date: "2017-09-25"
+tags: ["R", "ggplots", "dplyr"]
+catagory: ["R"]
+---
+
+
+
+<p>Showing how to sort data using dyplr to make ggplots show a graph that it would not without changing the data type.</p>
+<p>Load libraries:</p>
+<pre class="r"><code>library(Lahman)
+library(dplyr)
+library(ggplot2)</code></pre>
+<p>Change the data with dyplr:</p>
+<pre class="r"><code>df&lt;-Teams%&gt;%
+  filter(yearID == 1980)%&gt;%
+  select(name, HR)%&gt;%
+  arrange(HR)
+
+#sort the teams from lahman by the year 1980 and show the name and HR total
+
+df$name&lt;-factor(df$name, levels = df$name)
+
+#change the type of data to a factor and not a chr, then level it by our dplyr querry </code></pre>
+<p>Graph the data:</p>
+<pre class="r"><code>ggplot() +
+  geom_bar(data = df, aes(x = name, y = HR), stat = &quot;identity&quot;, color = &quot;blue&quot;, fill = &quot;white&quot;) +
+  coord_flip()</code></pre>
+<p><img src="/post/Data_Type_Dplyr_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>#graph the data using a bar graph</code></pre>

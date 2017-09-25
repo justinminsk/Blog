@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title> Histogram &middot; Justin Minsk&#39;s Blog </title>
+<title> Changing data types using dplyr &middot; Justin Minsk&#39;s Blog </title>
 
 
 <link rel="stylesheet" href="/css/slim.css">
@@ -38,32 +38,36 @@
     <div class="content">
       <div class="posts">
         <div class="post">
-          <h2 class="post-title"><a href="/post/histogram/">Histogram</a></h2>
+          <h2 class="post-title"><a href="/post/data_type_dplyr/">Changing data types using dplyr</a></h2>
           <span class="post-date">Sep 25, 2017 </span>
           <div class="post-content">
-            <p>Creating histograms using ggplots.</p>
-<p>load libraries:</p>
+            <p>Showing how to sort data using dyplr to make ggplots show a graph that it would not without changing the data type.</p>
+<p>Load libraries:</p>
 <pre class="r"><code>library(Lahman)
 library(dplyr)
 library(ggplot2)</code></pre>
-<p>Sort the data using dplyr:</p>
-<pre class="r"><code>df&lt;-Master%&gt;%
-  filter(!is.na(weight))%&gt;%
-  select(weight)
+<p>Change the data with dyplr:</p>
+<pre class="r"><code>df&lt;-Teams%&gt;%
+  filter(yearID == 1980)%&gt;%
+  select(name, HR)%&gt;%
+  arrange(HR)
 
-#get the weights form master of lahman</code></pre>
+#sort the teams from lahman by the year 1980 and show the name and HR total
+
+df$name&lt;-factor(df$name, levels = df$name)
+
+#change the type of data to a factor and not a chr, then level it by our dplyr querry </code></pre>
 <p>Graph the data:</p>
 <pre class="r"><code>ggplot() +
-  geom_histogram(data = df, aes(x = weight), color = &quot;white&quot;, fill = &quot;blue&quot;, bins = 25) +
-  ggtitle(&quot;Baseball Player Weights&quot;)</code></pre>
-<p><img src="/post/histogram_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<pre class="r"><code>#graph the weights in a histogram</code></pre>
+  geom_bar(data = df, aes(x = name, y = HR), stat = &quot;identity&quot;, color = &quot;blue&quot;, fill = &quot;white&quot;) +
+  coord_flip()</code></pre>
+<p><img src="/post/Data_Type_Dplyr_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>#graph the data using a bar graph</code></pre>
 
           </div>
         </div>
-        <div class="pagination">
-          <a class="btn previous " href="/post/data_type_dplyr/"> Prev</a>  
-          <a class="btn next " href="/post/lahmangraph/"> Next</a> 
+        <div class="pagination"> 
+          <a class="btn next " href="/post/histogram/"> Next</a> 
         </div>
       </div>
     </div>

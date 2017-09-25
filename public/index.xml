@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Changing data types using dplyr</title>
+      <link>/post/data_type_dplyr/</link>
+      <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data_type_dplyr/</guid>
+      <description>Showing how to sort data using dyplr to make ggplots show a graph that it would not without changing the data type.
+Load libraries:
+library(Lahman)library(dplyr)library(ggplot2)Change the data with dyplr:
+df&amp;lt;-Teams%&amp;gt;%filter(yearID == 1980)%&amp;gt;%select(name, HR)%&amp;gt;%arrange(HR)#sort the teams from lahman by the year 1980 and show the name and HR totaldf$name&amp;lt;-factor(df$name, levels = df$name)#change the type of data to a factor and not a chr, then level it by our dplyr querry Graph the data:</description>
+    </item>
+    
+    <item>
       <title>Histogram</title>
       <link>/post/histogram/</link>
       <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>

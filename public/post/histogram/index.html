@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title> Ggplots &middot; Justin Minsk&#39;s Blog </title>
+<title> Histogram &middot; Justin Minsk&#39;s Blog </title>
 
 
 <link rel="stylesheet" href="/css/slim.css">
@@ -15,7 +15,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 
 
-<link href="/tags/ggplots/index.xml" rel="alternate" type="application/rss+xml" title="Justin Minsk&#39;s Blog" />
+<link href="" rel="alternate" type="application/rss+xml" title="Justin Minsk&#39;s Blog" />
 
 </head>
 
@@ -37,59 +37,36 @@
 </div>
     <div class="content">
       <div class="posts">
-         
         <div class="post">
           <h2 class="post-title"><a href="/post/histogram/">Histogram</a></h2>
-          <span class="post-date">Sep 25, 2017</span>
-		  
-			<span class="post-tags">
-		  	
-			          #<a href="/tags/r">R</a>&nbsp;
-		  	
-			          #<a href="/tags/ggplots">ggplots</a>&nbsp;
-		  	
-		    </span>
-		  
-		  
+          <span class="post-date">Sep 25, 2017 </span>
+          <div class="post-content">
+            <p>Creating histograms using ggplots.</p>
+<p>load libraries:</p>
+<pre class="r"><code>library(Lahman)
+library(dplyr)
+library(ggplot2)</code></pre>
+<p>Sort the data using dplyr:</p>
+<pre class="r"><code>df&lt;-Master%&gt;%
+  filter(!is.na(weight))%&gt;%
+  select(weight)
+
+#get the weights form master of lahman</code></pre>
+<p>Graph the data:</p>
+<pre class="r"><code>ggplot() +
+  geom_histogram(data = df, aes(x = weight), color = &quot;white&quot;, fill = &quot;blue&quot;, bins = 25) +
+  ggtitle(&quot;Baseball Player Weights&quot;)</code></pre>
+<p><img src="/post/histogram_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>#graph the weights in a histogram</code></pre>
+
+          </div>
         </div>
-        
-        <div class="post">
-          <h2 class="post-title"><a href="/post/lahmangraph/">Graphing Lahman Data</a></h2>
-          <span class="post-date">Sep 22, 2017</span>
-		  
-			<span class="post-tags">
-		  	
-			          #<a href="/tags/r">R</a>&nbsp;
-		  	
-			          #<a href="/tags/ggplots">ggplots</a>&nbsp;
-		  	
-			          #<a href="/tags/dplyr">dplyr</a>&nbsp;
-		  	
-		    </span>
-		  
-		  
+        <div class="pagination"> 
+          <a class="btn next " href="/post/lahmangraph/"> Next</a> 
         </div>
-        
-        <div class="post">
-          <h2 class="post-title"><a href="/post/ggplots/">ggplots</a></h2>
-          <span class="post-date">Sep 20, 2017</span>
-		  
-			<span class="post-tags">
-		  	
-			          #<a href="/tags/r">R</a>&nbsp;
-		  	
-			          #<a href="/tags/ggplots">ggplots</a>&nbsp;
-		  	
-		    </span>
-		  
-		  
-        </div>
-        
       </div>
-      <div class="pagination">
-   
-</div>
     </div>
+    
     <div class="footer">
   
   <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
@@ -98,8 +75,11 @@
 
   </div>
   <script src="/js/slim.js"></script>
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
   
-
 </body>
 
 </html>

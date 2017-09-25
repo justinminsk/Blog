@@ -1,0 +1,27 @@
+---
+title: "Histogram"
+author: "Justin Minsk"
+date: "2017-09-25"
+tags: ["R", "ggplots"]
+catagory: ["R"]
+---
+
+
+
+<p>Creating histograms using ggplots.</p>
+<p>load libraries:</p>
+<pre class="r"><code>library(Lahman)
+library(dplyr)
+library(ggplot2)</code></pre>
+<p>Sort the data using dplyr:</p>
+<pre class="r"><code>df&lt;-Master%&gt;%
+  filter(!is.na(weight))%&gt;%
+  select(weight)
+
+#get the weights form master of lahman</code></pre>
+<p>Graph the data:</p>
+<pre class="r"><code>ggplot() +
+  geom_histogram(data = df, aes(x = weight), color = &quot;white&quot;, fill = &quot;blue&quot;, bins = 25) +
+  ggtitle(&quot;Baseball Player Weights&quot;)</code></pre>
+<p><img src="/post/histogram_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>#graph the weights in a histogram</code></pre>

@@ -1,0 +1,38 @@
+---
+title: "Histogram"
+author: "Justin Minsk"
+date: "2017-09-25"
+tags: ["R", "ggplots"]
+catagory: ["R"]
+---
+
+Creating histograms using ggplots.
+
+load libraries:
+
+```{r, warning=FALSE, message=FALSE}
+library(Lahman)
+library(dplyr)
+library(ggplot2)
+```
+
+Sort the data using dplyr:
+
+```{r}
+df<-Master%>%
+  filter(!is.na(weight))%>%
+  select(weight)
+
+#get the weights form master of lahman
+```
+
+Graph the data:
+
+```{r}
+ggplot() +
+  geom_histogram(data = df, aes(x = weight), color = "white", fill = "blue", bins = 25) +
+  ggtitle("Baseball Player Weights")
+
+#graph the weights in a histogram
+```
+

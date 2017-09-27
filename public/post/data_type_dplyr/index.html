@@ -54,19 +54,27 @@ library(ggplot2)</code></pre>
 
 #sort the teams from lahman by the year 1980 and show the name and HR total
 
-df$name&lt;-factor(df$name, levels = df$name)
+class(df$name)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>#look at the data type of name in the data frame</code></pre>
+<pre class="r"><code>df$name&lt;-factor(df$name, levels = df$name)
 
-#change the type of data to a factor and not a chr, then level it by our dplyr querry </code></pre>
+#change the type of data to a factor and not a chr, then level it by our dplyr querry
+
+class(df$name)</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code>#looking at the data type again</code></pre>
 <p>Graph the data:</p>
 <pre class="r"><code>ggplot() +
   geom_bar(data = df, aes(x = name, y = HR), stat = &quot;identity&quot;, color = &quot;blue&quot;, fill = &quot;white&quot;) +
   coord_flip()</code></pre>
-<p><img src="/post/Data_Type_Dplyr_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/Data_Type_Dplyr_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>#graph the data using a bar graph</code></pre>
 
           </div>
         </div>
-        <div class="pagination"> 
+        <div class="pagination">
+          <a class="btn previous " href="/post/baberuthhrbyyear/"> Prev</a>  
           <a class="btn next " href="/post/histogram/"> Next</a> 
         </div>
       </div>

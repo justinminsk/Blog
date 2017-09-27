@@ -27,9 +27,21 @@ df<-Teams%>%
 
 #sort the teams from lahman by the year 1980 and show the name and HR total
 
+class(df$name)
+
+#look at the data type of name in the data frame
+
+```
+
+
+```{r}
 df$name<-factor(df$name, levels = df$name)
 
-#change the type of data to a factor and not a chr, then level it by our dplyr querry 
+#change the type of data to a factor and not a chr, then level it by our dplyr querry
+
+class(df$name)
+
+#looking at the data type again
 ```
 
 Graph the data:

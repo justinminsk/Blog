@@ -20,7 +20,7 @@
       <description>Showing how to sort data using dyplr to make ggplots show a graph that it would not without changing the data type.
 Load libraries:
 library(Lahman)library(dplyr)library(ggplot2)Change the data with dyplr:
-df&amp;lt;-Teams%&amp;gt;%filter(yearID == 1980)%&amp;gt;%select(name, HR)%&amp;gt;%arrange(HR)#sort the teams from lahman by the year 1980 and show the name and HR totaldf$name&amp;lt;-factor(df$name, levels = df$name)#change the type of data to a factor and not a chr, then level it by our dplyr querry Graph the data:</description>
+df&amp;lt;-Teams%&amp;gt;%filter(yearID == 1980)%&amp;gt;%select(name, HR)%&amp;gt;%arrange(HR)#sort the teams from lahman by the year 1980 and show the name and HR totalclass(df$name)## [1] &amp;quot;character&amp;quot;#look at the data type of name in the data framedf$name&amp;lt;-factor(df$name, levels = df$name)#change the type of data to a factor and not a chr, then level it by our dplyr querryclass(df$name)## [1] &amp;quot;factor&amp;quot;#looking at the data type againGraph the data:</description>
     </item>
     
     <item>

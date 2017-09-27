@@ -6,10 +6,34 @@
     <description>Recent content in Ggplots on Justin Minsk&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/ggplots/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1980 Team Homeruns</title>
+      <link>/post/1980teamhr/</link>
+      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/1980teamhr/</guid>
+      <description>Import libraries:
+library(Lahman)library(dplyr)library(ggplot2)library(ggiraph)Set up the data:
+df&amp;lt;-Teams%&amp;gt;%filter(yearID == 1980)%&amp;gt;%select(name, HR)%&amp;gt;%arrange(HR)#sort the teams from lahman by the year 1980 and show the name and HR totaldf$name&amp;lt;-factor(df$name, levels = df$name)#change the type of data to a factor and not a chr, then level it by our dplyr querry Create an interactive graph with ggiraph:
+g&amp;lt;-ggplot() +geom_bar_interactive(data = df, aes(x = name, y = HR, tooltip = HR, data_id = name), stat = &amp;quot;identity&amp;quot;, color = &amp;quot;blue&amp;quot;, fill = &amp;quot;white&amp;quot;) +coord_flip()+ggtitle(&amp;quot;1980 Team Homeruns&amp;quot;)+ylab(&amp;quot;Homeruns&amp;quot;)+xlab(&amp;quot;Team Name&amp;quot;)#graph the data using a bar graphggiraph(code = print(g), hover_css = &amp;quot;fill:red;stroke:black&amp;quot;){&#34;</description>
+    </item>
+    
+    <item>
+      <title>Babe Ruth Homeruns by Year</title>
+      <link>/post/baberuthhrbyyear/</link>
+      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/baberuthhrbyyear/</guid>
+      <description>Import Libraries:
+library(Lahman)library(dplyr)library(ggplot2)library(ggiraph)Sort the data:
+df&amp;lt;-Batting%&amp;gt;%filter(playerID == &amp;quot;ruthba01&amp;quot;)%&amp;gt;%select(yearID, HR)#get Babe Ruths Homeruns by yearGraph the data:
+g&amp;lt;-ggplot()+geom_line(data = df, aes(x = yearID, y = HR)) +geom_point_interactive(data = df, aes(x = yearID, y = HR, tooltip = HR, data_id = yearID))#graph the dataggiraph(code = print(g), hover_css = &amp;quot;fill:white;stroke:red&amp;quot;){&#34;x&#34;:{&#34;html&#34;:&#34;\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 0\n \n \n 20\n \n \n 40\n \n \n 60\n \n \n \n \n \n \n \n \n \n \n \n 1915\n \n \n 1920\n \n \n 1925\n \n \n 1930\n \n \n 1935\n \n \n yearID\n \n \n HR\n \n \n\ndiv.</description>
+    </item>
     
     <item>
       <title>Changing data types using dplyr</title>
@@ -20,7 +44,7 @@
       <description>Showing how to sort data using dyplr to make ggplots show a graph that it would not without changing the data type.
 Load libraries:
 library(Lahman)library(dplyr)library(ggplot2)Change the data with dyplr:
-df&amp;lt;-Teams%&amp;gt;%filter(yearID == 1980)%&amp;gt;%select(name, HR)%&amp;gt;%arrange(HR)#sort the teams from lahman by the year 1980 and show the name and HR totaldf$name&amp;lt;-factor(df$name, levels = df$name)#change the type of data to a factor and not a chr, then level it by our dplyr querry Graph the data:</description>
+df&amp;lt;-Teams%&amp;gt;%filter(yearID == 1980)%&amp;gt;%select(name, HR)%&amp;gt;%arrange(HR)#sort the teams from lahman by the year 1980 and show the name and HR totalclass(df$name)## [1] &amp;quot;character&amp;quot;#look at the data type of name in the data framedf$name&amp;lt;-factor(df$name, levels = df$name)#change the type of data to a factor and not a chr, then level it by our dplyr querryclass(df$name)## [1] &amp;quot;factor&amp;quot;#looking at the data type againGraph the data:</description>
     </item>
     
     <item>

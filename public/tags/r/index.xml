@@ -6,10 +6,19 @@
     <description>Recent content in R on Justin Minsk&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flexdashboard</title>
+      <link>/post/flaexdashboard/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/flaexdashboard/</guid>
+      <description>Flexdashboard is a simple Rmarkdown library that allows you to post multiple graphs with a side board. Here is an example https://justinminsk.github.io/Dashboard/.</description>
+    </item>
     
     <item>
       <title>1980 Team Homeruns</title>

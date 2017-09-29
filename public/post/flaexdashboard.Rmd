@@ -1,0 +1,9 @@
+---
+title: "Flexdashboard"
+author: "Justin Minsk"
+date: "2017-09-29"
+tags: ["R", "flexdashboard"]
+catagory: ["R"]
+---
+
+Flexdashboard is a simple Rmarkdown library that allows you to post multiple graphs with a side board. Here is an example https://justinminsk.github.io/Dashboard/. 

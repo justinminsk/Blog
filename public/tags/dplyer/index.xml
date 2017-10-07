@@ -23,5 +23,18 @@ library(dplyr)library(ggplot2)library(stringr)library(lubridate)Then import 
 kc &amp;lt;- read.csv(&amp;#39;KoreanConflict.csv&amp;#39;, header = TRUE, stringsAsFactors = FALSE)#import the datacolnames(kc)## [1] &amp;quot;SERVICE_TYPE&amp;quot; &amp;quot;SERVICE_CODE&amp;quot; &amp;quot;ENROLLMENT&amp;quot; ## [4] &amp;quot;BRANCH&amp;quot; &amp;quot;RANK&amp;quot; &amp;quot;PAY_GRADE&amp;quot; ## [7] &amp;quot;POSITION&amp;quot; &amp;quot;BIRTH_YEAR&amp;quot; &amp;quot;SEX&amp;quot; ## [10] &amp;quot;HOME_CITY&amp;quot; &amp;quot;HOME_COUNTY&amp;quot; &amp;quot;NATIONALITY&amp;quot; ## [13] &amp;quot;STATE_CODE&amp;quot; &amp;quot;HOME_STATE&amp;quot; &amp;quot;MARITAL_STATUS&amp;quot; ## [16] &amp;quot;ETHNICITY&amp;quot; &amp;quot;ETHNICITY_1&amp;quot; &amp;quot;ETHNICITY_2&amp;quot; ## [19] &amp;quot;DIVISION&amp;quot; &amp;quot;INCIDENT_DATE&amp;quot; &amp;quot;FATALITY_YEAR&amp;quot; ## [22] &amp;quot;FATALITY_DATE&amp;quot; &amp;quot;HOSTILITY_CONDITIONS&amp;quot; &amp;quot;FATALITY&amp;quot; ## [25] &amp;quot;BURIAL_STATUS&amp;quot;#show the column namesLook at the incident dates to see how to find a problem with the data and fix it:</description>
     </item>
     
+    <item>
+      <title>Mass Shooting Data: Part 1</title>
+      <link>/post/massshootingpart1/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/massshootingpart1/</guid>
+      <description>Looking at data on mass shootings in the USA.
+First we import libraries:
+library(dplyr)library(ggplot2)library(stringr)library(lubridate)#import librariesThen the data:
+MSD &amp;lt;- read.csv(&amp;quot;Mass Shootings Dataset.csv&amp;quot;)#import datacolnames(MSD)## [1] &amp;quot;S.&amp;quot; &amp;quot;Title&amp;quot; &amp;quot;Location&amp;quot; ## [4] &amp;quot;Date&amp;quot; &amp;quot;Summary&amp;quot; &amp;quot;Fatalities&amp;quot; ## [7] &amp;quot;Injured&amp;quot; &amp;quot;Total.victims&amp;quot; &amp;quot;Mental.Health.Issues&amp;quot;## [10] &amp;quot;Race&amp;quot; &amp;quot;Gender&amp;quot; &amp;quot;Latitude&amp;quot; ## [13] &amp;quot;Longitude&amp;quot;#look at column namesThen we filter the data:
+df&amp;lt;-MSD%&amp;gt;%mutate(date = mdy(Date))%&amp;gt;%filter(date &amp;gt;= &amp;quot;2010-01-01&amp;quot;)#create a date using lubridateAnd create a chart:</description>
+    </item>
+    
   </channel>
 </rss>

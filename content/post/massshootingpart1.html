@@ -1,0 +1,42 @@
+---
+title: "Mass Shooting Data: Part 1"
+author: "Justin Minsk"
+date: "2017-10-07"
+tags: ["R", "ggplots", "dplyer"]
+catagory: ["R"]
+---
+
+
+
+<p>Looking at data on mass shootings in the USA.</p>
+<p>First we import libraries:</p>
+<pre class="r"><code>library(dplyr)
+library(ggplot2)
+library(stringr)
+library(lubridate)
+#import libraries</code></pre>
+<p>Then the data:</p>
+<pre class="r"><code>MSD &lt;- read.csv(&quot;Mass Shootings Dataset.csv&quot;)
+#import data
+
+colnames(MSD)</code></pre>
+<pre><code>##  [1] &quot;S.&quot;                   &quot;Title&quot;                &quot;Location&quot;            
+##  [4] &quot;Date&quot;                 &quot;Summary&quot;              &quot;Fatalities&quot;          
+##  [7] &quot;Injured&quot;              &quot;Total.victims&quot;        &quot;Mental.Health.Issues&quot;
+## [10] &quot;Race&quot;                 &quot;Gender&quot;               &quot;Latitude&quot;            
+## [13] &quot;Longitude&quot;</code></pre>
+<pre class="r"><code>#look at column names</code></pre>
+<p>Then we filter the data:</p>
+<pre class="r"><code>df&lt;-MSD%&gt;%
+  mutate(date = mdy(Date))%&gt;%
+  filter(date &gt;= &quot;2010-01-01&quot;)
+#create a date using lubridate</code></pre>
+<p>And create a chart:</p>
+<pre class="r"><code>ggplot()+
+  geom_line(data = df, aes(x = date, y = Fatalities))+
+  geom_line(data = df, aes(x = date, y = Injured), color = &quot;red&quot;)+
+  scale_x_date(date_breaks = &quot;3 months&quot;, date_labels = &quot;%b %y&quot;)+
+  coord_flip()</code></pre>
+<p><img src="/post/massshootingpart1_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>#show deaths and injuries from mass shootings from 2010</code></pre>
+<p>From here we need to graph and look at a few columns until we can create a goal.</p>

@@ -24,6 +24,19 @@ kc &amp;lt;- read.csv(&amp;#39;KoreanConflict.csv&amp;#39;, header = TRUE, strin
     </item>
     
     <item>
+      <title>Mass Shooting Data: Part 1</title>
+      <link>/post/massshootingpart1/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/massshootingpart1/</guid>
+      <description>Looking at data on mass shootings in the USA.
+First we import libraries:
+library(dplyr)library(ggplot2)library(stringr)library(lubridate)#import librariesThen the data:
+MSD &amp;lt;- read.csv(&amp;quot;Mass Shootings Dataset.csv&amp;quot;)#import datacolnames(MSD)## [1] &amp;quot;S.&amp;quot; &amp;quot;Title&amp;quot; &amp;quot;Location&amp;quot; ## [4] &amp;quot;Date&amp;quot; &amp;quot;Summary&amp;quot; &amp;quot;Fatalities&amp;quot; ## [7] &amp;quot;Injured&amp;quot; &amp;quot;Total.victims&amp;quot; &amp;quot;Mental.Health.Issues&amp;quot;## [10] &amp;quot;Race&amp;quot; &amp;quot;Gender&amp;quot; &amp;quot;Latitude&amp;quot; ## [13] &amp;quot;Longitude&amp;quot;#look at column namesThen we filter the data:
+df&amp;lt;-MSD%&amp;gt;%mutate(date = mdy(Date))%&amp;gt;%filter(date &amp;gt;= &amp;quot;2010-01-01&amp;quot;)#create a date using lubridateAnd create a chart:</description>
+    </item>
+    
+    <item>
       <title>1980 Team Homeruns</title>
       <link>/post/1980teamhr/</link>
       <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>

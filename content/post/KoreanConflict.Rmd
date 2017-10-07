@@ -1,0 +1,106 @@
+---
+title: "Korean Conflict Data"
+author: "Justin Minsk"
+date: "2017-10-07"
+tags: ["R", "ggplots", "dplyer"]
+catagory: ["R"]
+---
+
+Looking at data from kaggle that shows data on the Korean Conflict.
+
+First we need to import the libraries:
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(lubridate)
+```
+
+Then import the data:
+
+```{r}
+kc <- read.csv('KoreanConflict.csv', header = TRUE, stringsAsFactors = FALSE)
+#import the data
+
+colnames(kc)
+#show the column names
+```
+
+Look at the incident dates to see how to find a problem with the data and fix it:
+
+```{r}
+sum(str_detect(kc$INCIDENT_DATE, "\\d{8}"))
+#Looks for an 8 digit entry in the column incident date
+```
+
+```{r}
+for(i in 1:36574){
+  #loop through all the rows
+  incident<-str_detect(kc$INCIDENT_DATE[i], "\\d{8}")
+  #create a bool for each row one at a time at the incident date column
+  if(incident == FALSE){
+    #if it is false
+    fatality<-str_detect(kc$FATALITY[i], "\\d{8}")
+    #create a bool for each row one at a time at the fatality column
+    if(fatality == TRUE){
+      #if fatality is true
+      kc$INCIDENT_DATE[i]<-kc$FATALITY[i]
+      #move fatality to incident date in that row
+    }
+  }
+}
+```
+
+Then sort the data:
+
+```{r warning=FALSE}
+df <- kc%>%
+  filter(str_detect(kc$INCIDENT_DATE, "\\d{8}"))%>%
+  group_by(INCIDENT_DATE)%>%
+  summarise(num_deaths = n())%>%
+  mutate(date=ymd(INCIDENT_DATE))%>%
+  select(INCIDENT_DATE, num_deaths, date)%>%
+  filter(date <= "1953-07-27")%>%
+  arrange(desc(num_deaths))
+#get number of deaths by day and make incident date into a date format
+
+```
+
+Then graph the data:
+
+```{r}
+ggplot()+
+  geom_line(data = df, aes(x = date, y = num_deaths))
+#graph number of deaths by year
+```
+
+```{r}
+ggplot()+
+  geom_line(data = df, aes(x = date, y = num_deaths))+
+  scale_x_date(date_breaks = "3 months", date_labels = "%b %y")
+#graph number of deaths by 3 months
+```
+
+Next lets look at birth years:
+
+```{r warning=FALSE}
+df <- kc%>%
+  filter(str_detect(kc$BIRTH_YEAR, "\\d{4}"))%>%
+  group_by(BIRTH_YEAR)%>%
+  summarise(num_deaths = n())%>%
+  mutate(date=(BIRTH_YEAR))%>%
+  select(BIRTH_YEAR, num_deaths, date)%>%
+  arrange(desc(num_deaths))
+#filter the data to only get birth years and how many people died that where born that year
+```
+
+Then graph it:
+
+```{r}
+ggplot()+
+  geom_bar(data = df, aes(x = date, y = num_deaths), stat = "identity")+
+  coord_flip()
+#graph showing that people born in 1930 had the most deaths in the korean conflict
+```
+

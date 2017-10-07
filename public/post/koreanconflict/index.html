@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Korean Conflict Data &middot; Justin Minsk&#39;s Blog </title>
+
+
+<link rel="stylesheet" href="/css/slim.css">
+<link rel="stylesheet" href="/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Justin Minsk&#39;s Blog" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="/">Justin Minsk&#39;s Blog</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="/post/koreanconflict/">Korean Conflict Data</a></h2>
+          <span class="post-date">Oct 7, 2017 </span>
+          <div class="post-content">
+            <p>Looking at data from kaggle that shows data on the Korean Conflict.</p>
+<p>First we need to import the libraries:</p>
+<pre class="r"><code>library(dplyr)
+library(ggplot2)
+library(stringr)
+library(lubridate)</code></pre>
+<p>Then import the data:</p>
+<pre class="r"><code>kc &lt;- read.csv(&#39;KoreanConflict.csv&#39;, header = TRUE, stringsAsFactors = FALSE)
+#import the data
+
+colnames(kc)</code></pre>
+<pre><code>##  [1] &quot;SERVICE_TYPE&quot;         &quot;SERVICE_CODE&quot;         &quot;ENROLLMENT&quot;          
+##  [4] &quot;BRANCH&quot;               &quot;RANK&quot;                 &quot;PAY_GRADE&quot;           
+##  [7] &quot;POSITION&quot;             &quot;BIRTH_YEAR&quot;           &quot;SEX&quot;                 
+## [10] &quot;HOME_CITY&quot;            &quot;HOME_COUNTY&quot;          &quot;NATIONALITY&quot;         
+## [13] &quot;STATE_CODE&quot;           &quot;HOME_STATE&quot;           &quot;MARITAL_STATUS&quot;      
+## [16] &quot;ETHNICITY&quot;            &quot;ETHNICITY_1&quot;          &quot;ETHNICITY_2&quot;         
+## [19] &quot;DIVISION&quot;             &quot;INCIDENT_DATE&quot;        &quot;FATALITY_YEAR&quot;       
+## [22] &quot;FATALITY_DATE&quot;        &quot;HOSTILITY_CONDITIONS&quot; &quot;FATALITY&quot;            
+## [25] &quot;BURIAL_STATUS&quot;</code></pre>
+<pre class="r"><code>#show the column names</code></pre>
+<p>Look at the incident dates to see how to find a problem with the data and fix it:</p>
+<pre class="r"><code>sum(str_detect(kc$INCIDENT_DATE, &quot;\\d{8}&quot;))</code></pre>
+<pre><code>## [1] 33370</code></pre>
+<pre class="r"><code>#Looks for an 8 digit entry in the column incident date</code></pre>
+<pre class="r"><code>for(i in 1:36574){
+  #loop through all the rows
+  incident&lt;-str_detect(kc$INCIDENT_DATE[i], &quot;\\d{8}&quot;)
+  #create a bool for each row one at a time at the incident date column
+  if(incident == FALSE){
+    #if it is false
+    fatality&lt;-str_detect(kc$FATALITY[i], &quot;\\d{8}&quot;)
+    #create a bool for each row one at a time at the fatality column
+    if(fatality == TRUE){
+      #if fatality is true
+      kc$INCIDENT_DATE[i]&lt;-kc$FATALITY[i]
+      #move fatality to incident date in that row
+    }
+  }
+}</code></pre>
+<p>Then sort the data:</p>
+<pre class="r"><code>df &lt;- kc%&gt;%
+  filter(str_detect(kc$INCIDENT_DATE, &quot;\\d{8}&quot;))%&gt;%
+  group_by(INCIDENT_DATE)%&gt;%
+  summarise(num_deaths = n())%&gt;%
+  mutate(date=ymd(INCIDENT_DATE))%&gt;%
+  select(INCIDENT_DATE, num_deaths, date)%&gt;%
+  filter(date &lt;= &quot;1953-07-27&quot;)%&gt;%
+  arrange(desc(num_deaths))
+#get number of deaths by day and make incident date into a date format</code></pre>
+<p>Then graph the data:</p>
+<pre class="r"><code>ggplot()+
+  geom_line(data = df, aes(x = date, y = num_deaths))</code></pre>
+<p><img src="/post/KoreanConflict_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>#graph number of deaths by year</code></pre>
+<pre class="r"><code>ggplot()+
+  geom_line(data = df, aes(x = date, y = num_deaths))+
+  scale_x_date(date_breaks = &quot;3 months&quot;, date_labels = &quot;%b %y&quot;)</code></pre>
+<p><img src="/post/KoreanConflict_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>#graph number of deaths by 3 months</code></pre>
+<p>Next lets look at birth years:</p>
+<pre class="r"><code>df &lt;- kc%&gt;%
+  filter(str_detect(kc$BIRTH_YEAR, &quot;\\d{4}&quot;))%&gt;%
+  group_by(BIRTH_YEAR)%&gt;%
+  summarise(num_deaths = n())%&gt;%
+  mutate(date=(BIRTH_YEAR))%&gt;%
+  select(BIRTH_YEAR, num_deaths, date)%&gt;%
+  arrange(desc(num_deaths))
+#filter the data to only get birth years and how many people died that where born that year</code></pre>
+<p>Then graph it:</p>
+<pre class="r"><code>ggplot()+
+  geom_bar(data = df, aes(x = date, y = num_deaths), stat = &quot;identity&quot;)+
+  coord_flip()</code></pre>
+<p><img src="/post/KoreanConflict_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>#graph showing that people born in 1930 had the most deaths in the korean conflict</code></pre>
+
+          </div>
+        </div>
+        <div class="pagination"> 
+          <a class="btn next " href="/post/flaexdashboard/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="/js/slim.js"></script>
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

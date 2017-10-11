@@ -99,7 +99,7 @@ Then graph it:
 
 ```{r}
 ggplot()+
-  geom_bar(data = df, aes(x = date, y = num_deaths), stat = "identity")+
+  geom_line(data = df, aes(x = BIRTH_YEAR, y = num_deaths, group = 1))+
   coord_flip()
 #graph showing that people born in 1930 had the most deaths in the korean conflict
 ```

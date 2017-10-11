@@ -79,7 +79,7 @@ colnames(kc)</code></pre>
 #filter the data to only get birth years and how many people died that where born that year</code></pre>
 <p>Then graph it:</p>
 <pre class="r"><code>ggplot()+
-  geom_bar(data = df, aes(x = date, y = num_deaths), stat = &quot;identity&quot;)+
+  geom_line(data = df, aes(x = BIRTH_YEAR, y = num_deaths, group = 1))+
   coord_flip()</code></pre>
 <p><img src="/post/KoreanConflict_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre class="r"><code>#graph showing that people born in 1930 had the most deaths in the korean conflict</code></pre>

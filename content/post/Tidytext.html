@@ -1,0 +1,77 @@
+---
+title: "Tidytext"
+author: "Justin Minsk"
+date: "2017-11-08"
+tags: ["R", "tidytext", "tm", "wordcloud"]
+catagory: ["R"]
+---
+
+
+
+<div id="tidytext" class="section level1">
+<h1>Tidytext</h1>
+<p>Tidytext is a great set of packages that combined with a few other packages and some text can allow you to create some great text analysis.</p>
+<pre class="r"><code>library(tidytext)
+library(tm)
+library(wordcloud)
+library(stringr)
+library(dplyr)
+library(knitr)
+library(gutenbergr)</code></pre>
+</div>
+<div id="gutenbergr" class="section level1">
+<h1>Gutenbergr</h1>
+<p>This package contains a lot of books we can use to start out text analysis.</p>
+<pre class="r"><code>gutenberg_works(author == str_extract(author, &quot;Poe, Edgar Allan&quot;))</code></pre>
+<pre><code>## # A tibble: 16 x 8
+##    gutenberg_id
+##           &lt;int&gt;
+##  1          932
+##  2         1062
+##  3         1063
+##  4         1064
+##  5         1065
+##  6         2147
+##  7         2148
+##  8         2149
+##  9         2150
+## 10         2151
+## 11         8893
+## 12        10031
+## 13        25525
+## 14        32037
+## 15        45484
+## 16        50852
+## # ... with 7 more variables: title &lt;chr&gt;, author &lt;chr&gt;,
+## #   gutenberg_author_id &lt;int&gt;, language &lt;chr&gt;, gutenberg_bookshelf &lt;chr&gt;,
+## #   rights &lt;chr&gt;, has_text &lt;lgl&gt;</code></pre>
+<pre class="r"><code>#see Poes work&#39;s IDs
+
+df &lt;- gutenberg_download(10031)
+#get the complete poetical works of Edgar Allan Poe</code></pre>
+<p>Now that we have the book in a data frame we can start to break it down into words.</p>
+<pre class="r"><code>words_df &lt;- df%&gt;%
+  unnest_tokens(word, text)
+#split the lines into words</code></pre>
+<p>Then we can remove common words which are not useful in an analysis.</p>
+<pre class="r"><code>words_df &lt;- words_df%&gt;%
+  filter(!(word %in% stop_words$word))
+#get rid of common words that are not unique (the, a, etc.)
+
+words_df &lt;- words_df%&gt;%
+  filter(!word == &quot;thy&quot; &amp; !word == &quot;thou&quot; &amp; !word == &quot;thee&quot;)
+#some older words not in out stop_word list that are not useful</code></pre>
+</div>
+<div id="wordcloud" class="section level1">
+<h1>Wordcloud</h1>
+<p>A good visual representation of words and their counts is a wordcloud which we can do in R. First we need to get the count.</p>
+<pre class="r"><code>words_free &lt;- words_df%&gt;%
+  group_by(word)%&gt;%
+  summarise(count = n())%&gt;%
+  arrange(-count)
+#make a count of the word</code></pre>
+<p>Then with one line from the wordcloud package we can make a word cloud.</p>
+<pre class="r"><code>wordcloud(words_free$word, words_free$count, min.freq = 25)</code></pre>
+<p><img src="/post/Tidytext_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>#make a word cloud</code></pre>
+</div>

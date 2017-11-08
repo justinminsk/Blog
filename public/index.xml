@@ -6,10 +6,21 @@
     <description>Recent content on Justin Minsk&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tidytext</title>
+      <link>/post/tidytext/</link>
+      <pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytext/</guid>
+      <description>TidytextTidytext is a great set of packages that combined with a few other packages and some text can allow you to create some great text analysis.
+library(tidytext)library(tm)library(wordcloud)library(stringr)library(dplyr)library(knitr)library(gutenbergr)GutenbergrThis package contains a lot of books we can use to start out text analysis.
+gutenberg_works(author == str_extract(author, &amp;quot;Poe, Edgar Allan&amp;quot;))## # A tibble: 16 x 8## gutenberg_id## &amp;lt;int&amp;gt;## 1 932## 2 1062## 3 1063## 4 1064## 5 1065## 6 2147## 7 2148## 8 2149## 9 2150## 10 2151## 11 8893## 12 10031## 13 25525## 14 32037## 15 45484## 16 50852## # .</description>
+    </item>
     
     <item>
       <title>Korean Conflict Data</title>

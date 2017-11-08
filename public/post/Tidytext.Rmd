@@ -1,0 +1,72 @@
+---
+title: "Tidytext"
+author: "Justin Minsk"
+date: "2017-11-08"
+tags: ["R", "tidytext", "tm", "wordcloud"]
+catagory: ["R"]
+---
+# Tidytext 
+Tidytext is a great set of packages that combined with a few other packages and some text can allow you to create some great text analysis.
+
+```{r, warning=FALSE, message=FALSE}
+library(tidytext)
+library(tm)
+library(wordcloud)
+library(stringr)
+library(dplyr)
+library(knitr)
+library(gutenbergr)
+```
+
+# Gutenbergr
+
+This package contains a lot of books we can use to start out text analysis.
+
+```{r, warning=FALSE, message=FALSE}
+gutenberg_works(author == str_extract(author, "Poe, Edgar Allan"))
+#see Poes work's IDs
+
+df <- gutenberg_download(10031)
+#get the complete poetical works of Edgar Allan Poe
+```
+
+Now that we have the book in a data frame we can start to break it down into words.
+
+```{r, warning=FALSE, message=FALSE}
+words_df <- df%>%
+  unnest_tokens(word, text)
+#split the lines into words
+```
+
+Then we can remove common words which are not useful in an analysis.
+
+```{r, warning=FALSE, message=FALSE}
+words_df <- words_df%>%
+  filter(!(word %in% stop_words$word))
+#get rid of common words that are not unique (the, a, etc.)
+
+words_df <- words_df%>%
+  filter(!word == "thy" & !word == "thou" & !word == "thee")
+#some older words not in out stop_word list that are not useful
+```
+
+# Wordcloud
+
+A good visual representation of words and their counts is a wordcloud which we can do in R.
+First we need to get the count.
+
+```{r, warning=FALSE, message=FALSE}
+words_free <- words_df%>%
+  group_by(word)%>%
+  summarise(count = n())%>%
+  arrange(-count)
+#make a count of the word
+```
+
+Then with one line from the wordcloud package we can make a word cloud.
+
+```{r, warning=FALSE, message=FALSE}
+wordcloud(words_free$word, words_free$count, min.freq = 25)
+#make a word cloud
+```
+

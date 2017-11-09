@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Python Markdown in a Python Shell &middot; Justin Minsk&#39;s Blog </title>
+
+
+<link rel="stylesheet" href="/css/slim.css">
+<link rel="stylesheet" href="/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Justin Minsk&#39;s Blog" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="/">Justin Minsk&#39;s Blog</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="/post/pythonmarkdown/">Python Markdown in a Python Shell</a></h2>
+          <span class="post-date">Nov 9, 2017 </span>
+          <div class="post-content">
+            <!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="./codehilite.css">
+</head>
+
+<h1>Markdown in a Python Shell</h1>
+<p>Markdown can be writen in a python shell and the code can be turned into a python block with a 4 space indention.
+This is all done with the markdown package. For example:</p>
+<div class="codehilite"><pre><span></span>python_string = &#39;Hello World&#39;
+print(python_string)
+</pre></div>
+
+
+<p>The problem with doing it in the shell is that while converting to html is easy with the cmd line:</p>
+<div class="codehilite"><pre><span></span>python -m markdown -x codehilite some_markdown.md &gt; body.html
+</pre></div>
+
+
+<p>or:</p>
+<div class="codehilite"><pre><span></span>python -m markdown input.md &gt; output.html
+</pre></div>
+
+
+<p>It does not run the code like an RMarkdown file does with R and knitr. My previous post call Pokemon shows is done in 
+this manner since as I will show with the next post RMarkdown would not work for a full exploratory analysis like my 
+Pokemon project, even thou it can run blocks of python.</p>
+</body>
+</html>
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="/post/pokemon/"> Prev</a>  
+          <a class="btn next " href="/post/pythoninrmarkdown/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="/js/slim.js"></script>
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

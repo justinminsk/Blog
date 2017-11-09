@@ -22,6 +22,27 @@ A Look at Pokemon by GenerationPokemon became a sensation in the 1990&#39;s and
     </item>
     
     <item>
+      <title>Python Markdown in a Python Shell</title>
+      <link>/post/pythonmarkdown/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pythonmarkdown/</guid>
+      <description>Markdown in a Python ShellMarkdown can be writen in a python shell and the code can be turned into a python block with a 4 space indention.This is all done with the markdown package. For example:
+python_string = &amp;#39;Hello World&amp;#39;print(python_string)The problem with doing it in the shell is that while converting to html is easy with the cmd line:
+python -m markdown -x codehilite some_markdown.</description>
+    </item>
+    
+    <item>
+      <title>Python in RMarkdown</title>
+      <link>/post/pythoninrmarkdown/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pythoninrmarkdown/</guid>
+      <description>Python in RStudioPython blocks of code can be written in Rmarkdown and knited with knitr. For example:
+python_string = &amp;quot;Hello World&amp;quot;print(python_string)## Hello WorldHowever unlike R code blocks the data does not transfer from code block to code block. This means you have to import packages and data every code block. This is fine for some short examples or for a graph or two but will get tiresome and wordy very quickly if you want to explain steps more indepth.</description>
+    </item>
+    
+    <item>
       <title>Tidytext</title>
       <link>/post/tidytext/</link>
       <pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate>

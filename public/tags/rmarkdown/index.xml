@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rmarkdown on Justin Minsk&#39;s Blog</title>
+    <link>/tags/rmarkdown/</link>
+    <description>Recent content in Rmarkdown on Justin Minsk&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python in RMarkdown</title>
+      <link>/post/pythoninrmarkdown/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pythoninrmarkdown/</guid>
+      <description>Python in RStudioPython blocks of code can be written in Rmarkdown and knited with knitr. For example:
+python_string = &amp;quot;Hello World&amp;quot;print(python_string)## Hello WorldHowever unlike R code blocks the data does not transfer from code block to code block. This means you have to import packages and data every code block. This is fine for some short examples or for a graph or two but will get tiresome and wordy very quickly if you want to explain steps more indepth.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on Justin Minsk&#39;s Blog</title>
+    <link>/tags/markdown/</link>
+    <description>Recent content in Markdown on Justin Minsk&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Markdown in a Python Shell</title>
+      <link>/post/pythonmarkdown/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pythonmarkdown/</guid>
+      <description>Markdown in a Python ShellMarkdown can be writen in a python shell and the code can be turned into a python block with a 4 space indention.This is all done with the markdown package. For example:
+python_string = &amp;#39;Hello World&amp;#39;print(python_string)The problem with doing it in the shell is that while converting to html is easy with the cmd line:
+python -m markdown -x codehilite some_markdown.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -57,6 +57,24 @@
     </item>
     
     <item>
+      <title>Html</title>
+      <link>/tags/html/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>/tags/markdown/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Matplotlib</title>
       <link>/tags/matplotlib/</link>
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
@@ -89,6 +107,15 @@
       <pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rmarkdown</title>
+      <link>/tags/rmarkdown/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rmarkdown/</guid>
       <description></description>
     </item>
     

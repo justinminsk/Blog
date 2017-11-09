@@ -1,0 +1,60 @@
+---
+title: "Python in RMarkdown"
+author: "Justin Minsk"
+date: "2017-11-09"
+tags: ["Python", "RMarkdown", "html"]
+catagory: ["Python"]
+---
+
+
+
+<div id="python-in-rstudio" class="section level1">
+<h1>Python in RStudio</h1>
+<p>Python blocks of code can be written in Rmarkdown and knited with knitr. For example:</p>
+<pre class="python"><code>python_string = &quot;Hello World&quot;
+print(python_string)</code></pre>
+<pre><code>## Hello World</code></pre>
+<p>However unlike R code blocks the data does not transfer from code block to code block. This means you have to import packages and data every code block. This is fine for some short examples or for a graph or two but will get tiresome and wordy very quickly if you want to explain steps more indepth. I recomend avoiding markdown and python untill better support is created for larger projects, but if you want to use python in a blog then I would break your posts down to smaller chunks. Such as this:</p>
+<pre class="python"><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+#import libraries
+
+pokemon = pd.read_csv(&#39;Pokemon.csv&#39;)
+#import data
+
+# Looking at the breakdown of type 1
+type_count = pd.value_counts(pokemon[&#39;Type 1&#39;], sort = True).sort_index()
+labels = [&#39;Bug&#39;, &#39;Dark&#39;, &#39;Dragon&#39;, &#39;Electric&#39;, &#39;Fariy&#39;, &#39;Fighting&#39;, &#39;Fire&#39;,
+         &#39;Flying&#39;, &#39;Ghost&#39;, &#39;Grass&#39;, &#39;Ground&#39;, &#39;Ice&#39;, &#39;Normal&#39;, &#39;Poison&#39;, &#39;Psychic&#39;,
+         &#39;Rock&#39;, &#39;Steel&#39;, &#39;Water&#39;]
+sizes = type_count
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels = labels, startangle=90)
+ax1.axis(&#39;equal&#39;)  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+plt.title(&#39;Number of Pokemon by type 1&#39;)
+plt.savefig(&#39;pie1.png&#39;, bbox_inches=&#39;tight&#39;)
+#plt.show()
+</code></pre>
+<p><img src="pie1.png" alt="output" /> Or like this:</p>
+<pre class="python"><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+#import libraries
+
+pokemon = pd.read_csv(&#39;Pokemon.csv&#39;)
+#import data
+
+colormap = plt.cm.plasma
+plt.figure(figsize=(16,12))
+plt.title(&#39;Pearson correlation of data&#39;, y = 1.05, size = 15)
+sns.heatmap(pokemon.corr(), linewidths=0.1, vmax=1.0, square=True, cmap=colormap, linecolor=&#39;black&#39;, annot=True)
+plt.savefig(&#39;heat1.png&#39;, bbox_inches=&#39;tight&#39;)
+#plt.show()
+#color map looking at Pearson correlations</code></pre>
+<p><img src="heat1.png" alt="output" /> And then commenting on what you have done, or the findings.</p>
+</div>

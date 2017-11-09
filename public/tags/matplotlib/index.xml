@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matplotlib on Justin Minsk&#39;s Blog</title>
+    <link>/tags/matplotlib/</link>
+    <description>Recent content in Matplotlib on Justin Minsk&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pokemon</title>
+      <link>/post/pokemon/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pokemon/</guid>
+      <description>How to run the codeTo run the code you should use anaconda3 or jupyter notebook with python 3. You will also need numpy, pandas, matplotlib, seaborn, and pylab libraries for python.
+A Look at Pokemon by GenerationPokemon became a sensation in the 1990&#39;s and continues to be a popular franchise to this date.Pokemon the video game has evolved (pun intended) over the decades into a complex game that takesa lot of statistics and analyze to create teams that can win the meta at tournaments.</description>
+    </item>
+    
+  </channel>
+</rss>

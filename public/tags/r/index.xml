@@ -23,16 +23,6 @@ gutenberg_works(author == str_extract(author, &amp;quot;Poe, Edgar Allan&amp;quo
     </item>
     
     <item>
-      <title>Tidytext</title>
-      <link>/post/pokemon/</link>
-      <pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/pokemon/</guid>
-      <description>How to run the codeTo run the code you should use anaconda3 or jupyter notebook with python 3. You will also need numpy, pandas, matplotlib, seaborn, and pylab libraries for python.
-A Look at Pokemon by GenerationPokemon became a sensation in the 1990&#39;s and continues to be a popular franchise to this date.Pokemon the video game has evolved (pun intended) over the decades into a complex game that takesa lot of statistics and analyze to create teams that can win the meta at tournaments.</description>
-    </item>
-    
-    <item>
       <title>Korean Conflict Data</title>
       <link>/post/koreanconflict/</link>
       <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>

@@ -39,7 +39,7 @@ python -m markdown -x codehilite some_markdown.</description>
       
       <guid>/post/pythoninrmarkdown/</guid>
       <description>Python in RStudioPython blocks of code can be written in Rmarkdown and knited with knitr. For example:
-python_string = &amp;quot;Hello World&amp;quot;print(python_string)## Hello WorldHowever unlike R code blocks the data does not transfer from code block to code block. This means you have to import packages and data every code block. This is fine for some short examples or for a graph or two but will get tiresome and wordy very quickly if you want to explain steps more indepth.</description>
+python_string = &amp;quot;Hello World&amp;quot;print(python_string)## Hello WorldHowever, unlike R code blocks the data does not transfer from code block to code block. This means you must import packages and data every code block. This is fine for some short examples or for a graph, but this will get tiresome and wordy very quickly if you want to explain more than one step in-depth.</description>
     </item>
     
   </channel>

@@ -14,7 +14,7 @@ python_string = "Hello World"
 print(python_string)
 ```
 
-However unlike R code blocks the data does not transfer from code block to code block. This means you have to import packages and data every code block. This is fine for some short examples or for a graph or two but will get tiresome and wordy very quickly if you want to explain steps more indepth. I recomend avoiding markdown and python untill better support is created for larger projects, but if you want to use python in a blog then I would break your posts down to smaller chunks. Such as this:
+However, unlike R code blocks the data does not transfer from code block to code block. This means you must import packages and data every code block. This is fine for some short examples or for a graph, but this will get tiresome and wordy very quickly if you want to explain more than one step in-depth. I recommend avoiding markdown and python until better support is created for larger projects, but if you want to use python in a blog then I would break your posts down to smaller chunks. Such as this:
 
 ```{python}
 import numpy as np
@@ -67,4 +67,5 @@ plt.savefig('heat1.png', bbox_inches='tight')
 
 
 ![output](heat1.png)
+
 And then commenting on what you have done, or the findings.

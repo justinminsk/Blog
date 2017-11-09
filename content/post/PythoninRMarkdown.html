@@ -14,7 +14,7 @@ catagory: ["Python"]
 <pre class="python"><code>python_string = &quot;Hello World&quot;
 print(python_string)</code></pre>
 <pre><code>## Hello World</code></pre>
-<p>However unlike R code blocks the data does not transfer from code block to code block. This means you have to import packages and data every code block. This is fine for some short examples or for a graph or two but will get tiresome and wordy very quickly if you want to explain steps more indepth. I recomend avoiding markdown and python untill better support is created for larger projects, but if you want to use python in a blog then I would break your posts down to smaller chunks. Such as this:</p>
+<p>However, unlike R code blocks the data does not transfer from code block to code block. This means you must import packages and data every code block. This is fine for some short examples or for a graph, but this will get tiresome and wordy very quickly if you want to explain more than one step in-depth. I recommend avoiding markdown and python until better support is created for larger projects, but if you want to use python in a blog then I would break your posts down to smaller chunks. Such as this:</p>
 <pre class="python"><code>import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -56,5 +56,9 @@ sns.heatmap(pokemon.corr(), linewidths=0.1, vmax=1.0, square=True, cmap=colormap
 plt.savefig(&#39;heat1.png&#39;, bbox_inches=&#39;tight&#39;)
 #plt.show()
 #color map looking at Pearson correlations</code></pre>
-<p><img src="heat1.png" alt="output" /> And then commenting on what you have done, or the findings.</p>
+<div class="figure">
+<img src="heat1.png" alt="output" />
+<p class="caption">output</p>
+</div>
+<p>And then commenting on what you have done, or the findings.</p>
 </div>

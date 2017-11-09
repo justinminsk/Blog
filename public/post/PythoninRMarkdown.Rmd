@@ -38,12 +38,13 @@ ax1.pie(sizes, labels = labels, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
 plt.title('Number of Pokemon by type 1')
-plt.savefig('pie1.png', bbox_inches='tight')
+#plt.savefig('pie1.png', bbox_inches='tight')
 #plt.show()
 
 ```
 
-![output](pie1.png)
+<img src="pie1.png", alt="pie">
+
 Or like this:
 
 ```{python}
@@ -60,12 +61,12 @@ colormap = plt.cm.plasma
 plt.figure(figsize=(16,12))
 plt.title('Pearson correlation of data', y = 1.05, size = 15)
 sns.heatmap(pokemon.corr(), linewidths=0.1, vmax=1.0, square=True, cmap=colormap, linecolor='black', annot=True)
-plt.savefig('heat1.png', bbox_inches='tight')
+#plt.savefig('heat1.png', bbox_inches='tight')
 #plt.show()
 #color map looking at Pearson correlations
 ```
 
 
-![output](heat1.png)
+<img src="heat1.png", alt="pie">
 
 And then commenting on what you have done, or the findings.

@@ -43,7 +43,7 @@ plt.title('Number of Pokemon by type 1')
 
 ```
 
-<img src="pie1.png", alt="pie">
+<img src="pie1.png">
 
 Or like this:
 
@@ -67,6 +67,6 @@ sns.heatmap(pokemon.corr(), linewidths=0.1, vmax=1.0, square=True, cmap=colormap
 ```
 
 
-<img src="heat1.png", alt="pie">
+<img src="heat1.png">
 
 And then commenting on what you have done, or the findings.

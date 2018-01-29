@@ -59,16 +59,25 @@
     <item>
       <title>Html</title>
       <link>/tags/html/</link>
-      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Jupyter Notebook</title>
+      <link>/tags/jupyter-notebook/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/jupyter-notebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Markdown</title>
       <link>/tags/markdown/</link>
-      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/markdown/</guid>
       <description></description>

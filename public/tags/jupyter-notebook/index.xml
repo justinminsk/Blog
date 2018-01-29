@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Markdown on Justin Minsk&#39;s Blog</title>
-    <link>/tags/markdown/</link>
-    <description>Recent content in Markdown on Justin Minsk&#39;s Blog</description>
+    <title>Jupyter Notebook on Justin Minsk&#39;s Blog</title>
+    <link>/tags/jupyter-notebook/</link>
+    <description>Recent content in Jupyter Notebook on Justin Minsk&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/jupyter-notebook/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,17 +18,6 @@
       
       <guid>/post/jupyternotebookwithmarkdown/</guid>
       <description>JupyterNotebookWithMarkdown/*!** Twitter Bootstrap**//*!* Bootstrap v3.3.7 (http://getbootstrap.com)* Copyright 2011-2016 Twitter, Inc.* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html {font-family: sans-serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}body {margin: 0;}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {display: block;}audio,canvas,progress,video {display: inline-block;vertical-align: baseline;}audio:not([controls]) {display: none;height: 0;}[hidden],template {display: none;}a {background-color: transparent;}a:active,a:hover {outline: 0;}abbr[title] {border-bottom: 1px dotted;}b,strong {font-weight: bold;}dfn {font-style: italic;}h1 {font-size: 2em;margin: 0.</description>
-    </item>
-    
-    <item>
-      <title>Python Markdown in a Python Shell</title>
-      <link>/post/pythonmarkdown/</link>
-      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/pythonmarkdown/</guid>
-      <description>Markdown in a Python ShellMarkdown can be writen in a python shell and the code can be turned into a python block with a 4 space indention.This is all done with the markdown package. For example:
-python_string = &amp;#39;Hello World&amp;#39;print(python_string)The problem with doing it in the shell is that while converting to html is easy with the cmd line:
-python -m markdown -x codehilite some_markdown.</description>
     </item>
     
   </channel>
